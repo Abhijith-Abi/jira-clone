@@ -1,5 +1,10 @@
 import React from "react";
+import SignUpCard from "@/features/auth/components/sign-up-card";
 
 export default function SignUp() {
-    return <div>SignUp</div>;
+    return (
+        <div>
+            <SignUpCard />
+        </div>
+    );
 }
