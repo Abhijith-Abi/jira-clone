@@ -1,10 +1,21 @@
 import React from "react";
-import SignInCard from "@/features/auth/components/sign-in-card";
+import { redirect } from "next/navigation";
 
-export default function SignIn() {
+import SignInCard from "@/features/auth/components/sign-in-card";
+import { getCurrent } from "@/features/auth/actions";
+
+const SignIn = async () => {
+    const user = await getCurrent();
+
+    if (user) {
+        redirect("/");
+    }
+
     return (
-        <div>
+        <>
             <SignInCard />
-        </div>
+        </>
     );
-}
+};
+
+export default SignIn;
